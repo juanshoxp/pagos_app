@@ -80,6 +80,7 @@ textarea { resize: vertical; }
 .nav-item[aria-current='page'] { background: var(--accent-soft); color: var(--accent-text); }
 .content { padding: 32px 40px; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
 .tabbar { display: none; }
+.topbar { display: none; }
 
 .page-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -125,6 +126,9 @@ tbody tr:last-child td { border-bottom: 0; }
 @media (max-width: 860px) {
   .shell { display: block; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
   .sidebar { display: none; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: var(--sidebar); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 9; }
+  .topbar-actions { display: flex; gap: 8px; }
+  .topbar .logo-box { padding: 6px 8px; }
   .content { padding: 20px 16px; gap: 16px; }
   h1 { font-size: 24px; }
   .kpis { grid-template-columns: 1fr 1fr; gap: 12px; }

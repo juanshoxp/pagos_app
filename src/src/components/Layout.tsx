@@ -31,6 +31,15 @@ export default function Layout({ route, children, onLogout }: { route: string; c
           <ThemeToggle />
         </div>
       </aside>
+      <header className="topbar">
+        <Logo height={28} />
+        <div className="topbar-actions">
+          <ThemeToggle />
+          <button type="button" className="icon-btn" aria-label="Cerrar sesión" onClick={() => { logout(); onLogout() }}>
+            <Icon name="logout" />
+          </button>
+        </div>
+      </header>
       <main className="content">{children}</main>
       <nav className="tabbar" aria-label="Principal">
         {item(NAV[0])}
