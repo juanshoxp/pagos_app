@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "$0")/.."
+export UID GID=$(id -g)
+docker compose down --remove-orphans
+docker compose up -d --force-recreate
+echo "App reiniciada en http://localhost:5173"

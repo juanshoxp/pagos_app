@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "$0")/.."
+export UID GID=$(id -g)
+docker compose up -d
+echo "App en http://localhost:5173 (la primera vez tarda por npm install; logs: docker compose logs -f)"
