@@ -29,7 +29,7 @@ export default function App() {
 
   const out = () => { setUserId(null); go('/pagos') }
   return (
-    <Layout route={route}>
+    <Layout route={route} onLogout={out}>
       {route === '/nuevo' ? <NewPayment userId={userId} />
         : route === '/clientes' ? <Entities userId={userId} kind="clients" />
         : route === '/apps' ? <Entities userId={userId} kind="apps" />

@@ -74,7 +74,8 @@ textarea { resize: vertical; }
 .shell { min-height: 100dvh; display: grid; grid-template-columns: 232px 1fr; }
 .sidebar { background: var(--sidebar); border-right: 1px solid var(--border); padding: 24px 16px; display: flex; flex-direction: column; gap: 28px; position: sticky; top: 0; height: 100dvh; }
 .sidebar nav { display: flex; flex-direction: column; gap: 4px; }
-.sidebar-foot { margin-top: auto; }
+.sidebar-foot { margin-top: auto; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.sidebar-foot .logout { width: 100%; background: none; border: 0; font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
 .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; color: var(--text-muted); text-decoration: none; font-weight: 600; }
 .nav-item[aria-current='page'] { background: var(--accent-soft); color: var(--accent-text); }
 .content { padding: 32px 40px; display: flex; flex-direction: column; gap: 24px; min-width: 0; }

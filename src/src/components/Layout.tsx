@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import Icon from './Icon'
 import Logo from './Logo'
 import ThemeToggle from './ThemeToggle'
+import { logout } from '../auth'
 
 const NAV = [
   { path: '/pagos', label: 'Pagos', icon: 'pagos' },
@@ -10,7 +11,7 @@ const NAV = [
   { path: '/ajustes', label: 'Ajustes', icon: 'ajustes' },
 ] as const
 
-export default function Layout({ route, children }: { route: string; children: ReactNode }) {
+export default function Layout({ route, children, onLogout }: { route: string; children: ReactNode; onLogout: () => void }) {
   const item = (n: (typeof NAV)[number]) => (
     <a key={n.path} href={`#${n.path}`} className="nav-item" aria-current={route === n.path ? 'page' : undefined}>
       <Icon name={n.icon} />
@@ -22,7 +23,13 @@ export default function Layout({ route, children }: { route: string; children: R
       <aside className="sidebar">
         <Logo height={40} />
         <nav aria-label="Principal">{NAV.map(item)}</nav>
-        <div className="sidebar-foot"><ThemeToggle /></div>
+        <div className="sidebar-foot">
+          <button type="button" className="nav-item logout" onClick={() => { logout(); onLogout() }}>
+            <Icon name="logout" />
+            <span>Cerrar sesión</span>
+          </button>
+          <ThemeToggle />
+        </div>
       </aside>
       <main className="content">{children}</main>
       <nav className="tabbar" aria-label="Principal">
